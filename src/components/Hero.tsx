@@ -49,43 +49,46 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="h-screen flex items-center justify-center relative overflow-hidden scroll-mt-16 md:scroll-mt-20"
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-500 rounded-full filter blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className={`container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className={`container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         {/* Greeting */}
-        <div className="mb-6">
-          <span className="text-primary-400 text-lg font-medium">Hello, I&apos;m</span>
+        <div className="mb-4 sm:mb-6">
+          <span className="text-primary-400 text-base sm:text-lg font-medium">Hello, I&apos;m</span>
         </div>
 
         {/* Name */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6">
           <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
             Saransh Singhal
           </span>
         </h1>
 
         {/* Title/Tagline */}
-        <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-6 font-light">
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-4 sm:mb-6 font-light text-center">
           Mobile App Developer & Blockchain Enthusiast
         </h2>
 
-        <p className="text-lg sm:text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-gray-400 text-center mb-8 sm:mb-12 max-w-3xl mx-auto">
           I thrive at the intersection of technology and innovation. Specializing in Flutter, Swift, and Web3 development 
           with a passion for creating dynamic mobile applications and blockchain solutions.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16">
           {socialLinks.map((link, index) => (
             <a
               key={link.name}
               href={link.href}
-              target={link.name === 'Resume' ? '_blank' : '_blank'}
+              target="_blank"
               rel="noopener noreferrer"
               className={`${index === 0 ? 'btn-primary' : 'btn-secondary'} hover-glow transition-all duration-300`}
             >
@@ -94,15 +97,15 @@ const Hero = () => {
             </a>
           ))}
         </div>
+      </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <a href="#about" className="text-gray-400 hover:text-primary-400 transition-colors">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </a>
-        </div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+        <a href="#about" className="text-gray-400 hover:text-primary-400 transition-colors">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
       </div>
     </section>
   );

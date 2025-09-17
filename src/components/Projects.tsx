@@ -103,7 +103,7 @@ const Projects = () => {
           <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary-400 transition-colors duration-300">
             {project.title}
           </h3>
-          <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">
+          <p className="text-gray-400 text-sm leading-relaxed">
             {project.description}
           </p>
         </div>
@@ -157,20 +157,20 @@ const Projects = () => {
   );
 
   return (
-    <div className="relative">
+    <div className="relative max-w-6xl mx-auto">
       {/* Section Header */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+      <div className="text-center mb-12 sm:mb-16">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
           My <span className="gradient-text">Projects</span>
         </h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+        <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
           A showcase of my work across different technologies and platforms. Each project represents a unique challenge and learning opportunity.
         </p>
         <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
       </div>
 
       {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-4">
         {categories.map((category) => (
           <button
             key={category.id}
@@ -196,7 +196,7 @@ const Projects = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
         {filteredProjects.map((project, index) => (
           <div 
             key={project.id}

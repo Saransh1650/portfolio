@@ -20,17 +20,23 @@ const Skills = () => {
         <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {skills.map((skill) => (
-          <div key={skill.name} className="card">
-            <h3 className="text-lg font-semibold mb-2">{skill.name}</h3>
-            <div className="w-full bg-gray-700 rounded-full h-2">
+          <div key={skill.name} className="card p-4 sm:p-6 hover-glow">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-white">{skill.name}</h3>
+              <span className="text-sm font-medium text-primary-400">{skill.level}%</span>
+            </div>
+            <div className="w-full bg-gray-700/50 rounded-full h-3 mb-2">
               <div
-                className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"
+                className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full transition-all duration-1000 ease-out"
                 style={{ width: `${skill.level}%` }}
               ></div>
             </div>
-            <span className="text-sm text-gray-400 mt-1">{skill.level}%</span>
+            <div className="flex justify-between text-xs text-gray-400">
+              <span>Proficiency</span>
+              <span>{skill.level > 85 ? 'Expert' : skill.level > 70 ? 'Advanced' : 'Intermediate'}</span>
+            </div>
           </div>
         ))}
       </div>

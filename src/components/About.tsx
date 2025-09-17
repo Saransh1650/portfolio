@@ -9,7 +9,7 @@ const About = () => {
         <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+  <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 items-center">
         {/* Text Content */}
         <div className="space-y-6">
           <p className="text-lg text-gray-300 leading-relaxed">
@@ -49,44 +49,44 @@ const About = () => {
             {/* Stats/Highlights */}
         {/* Stats and Current Work */}
         <div className="space-y-8">
-          <div className="grid grid-cols-2 gap-6">
-            <div className="text-center p-6 card">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">57+</div>
-              <div className="text-gray-400">GitHub Repos</div>
+          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+            <div className="text-center p-4 sm:p-6 card hover-glow">
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">57+</div>
+              <div className="text-gray-400 text-sm sm:text-base">GitHub Repos</div>
             </div>
-            <div className="text-center p-6 card">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">1.9k+</div>
-              <div className="text-gray-400">Contributions</div>
+            <div className="text-center p-4 sm:p-6 card hover-glow">
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">1.9k+</div>
+              <div className="text-gray-400 text-sm sm:text-base">Contributions</div>
             </div>
-            <div className="text-center p-6 card">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">15+</div>
-              <div className="text-gray-400">Technologies</div>
+            <div className="text-center p-4 sm:p-6 card hover-glow">
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">15+</div>
+              <div className="text-gray-400 text-sm sm:text-base">Technologies</div>
             </div>
-            <div className="text-center p-6 card">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">4</div>
-              <div className="text-gray-400">GitHub Followers</div>
+            <div className="text-center p-4 sm:p-6 card hover-glow">
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">4</div>
+              <div className="text-gray-400 text-sm sm:text-base">GitHub Followers</div>
             </div>
           </div>
 
           {/* Current Focus */}
-          <div className="p-6 card">
-            <h3 className="text-xl font-semibold mb-4 text-blue-400">Currently Working On</h3>
-            <ul className="space-y-2 text-gray-300">
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                Arbitrage trading algorithms with Python
+          <div className="p-4 sm:p-6 card hover-glow">
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 text-blue-400">Currently Working On</h3>
+            <ul className="space-y-3 text-gray-300">
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
+                <span className="text-sm sm:text-base">Arbitrage trading algorithms with Python</span>
               </li>
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                Advanced SwiftUI and ARKit applications
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
+                <span className="text-sm sm:text-base">Advanced SwiftUI and ARKit applications</span>
               </li>
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                Web3 and blockchain integrations
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
+                <span className="text-sm sm:text-base">Web3 and blockchain integrations</span>
               </li>
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                Flutter cross-platform solutions
+              <li className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
+                <span className="text-sm sm:text-base">Flutter cross-platform solutions</span>
               </li>
             </ul>
           </div>
