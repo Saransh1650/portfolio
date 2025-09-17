@@ -4,7 +4,7 @@ const About = () => {
       id="about"
       className="h-screen flex items-center justify-center relative overflow-hidden scroll-mt-16 md:scroll-mt-20 py-0"
     >
-      <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -42,7 +42,7 @@ const About = () => {
               {['Mobile Development', 'Blockchain/Web3', 'iOS Development', 'Flutter', 'Smart Contracts', 'AR/VR'].map((tag) => (
                 <span 
                   key={tag}
-                  className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm border border-blue-500/20"
+                  className="px-4 py-2 bg-blue-500/10 text-blue-400 rounded-full text-sm border border-blue-500/20"
                 >
                   {tag}
                 </span>
