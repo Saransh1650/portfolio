@@ -55,14 +55,14 @@ const Hero = () => {
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-500 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className={`container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         {/* Greeting */}
         <div className="mb-4 sm:mb-6">
-          <span className="text-primary-400 text-base sm:text-lg font-medium">Hello, I&apos;m</span>
+          <span className="text-purple-400 text-base sm:text-lg font-medium">Hello, I&apos;m</span>
         </div>
 
         {/* Name */}
@@ -90,7 +90,7 @@ const Hero = () => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${index === 0 ? 'btn-primary' : 'btn-secondary'} hover-glow transition-all duration-300`}
+              className={`${index === 0 ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700' : 'border-2 border-purple-500 hover:bg-purple-500/10'} text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300`}
             >
               {link.icon}
               {link.name}
@@ -101,7 +101,7 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <a href="#about" className="text-gray-400 hover:text-primary-400 transition-colors">
+        <a href="#about" className="text-gray-400 hover:text-purple-400 transition-colors">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>

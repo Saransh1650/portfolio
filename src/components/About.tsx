@@ -8,9 +8,9 @@ const About = () => {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            About <span className="gradient-text">Me</span>
+            About <span className="bg-gradient-to-r from-purple-400 to-blue-600 bg-clip-text text-transparent">Me</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-teal-500 mx-auto"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
@@ -53,26 +53,26 @@ const About = () => {
           {/* Stats and Current Work */}
           <div className="space-y-8">
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="text-center p-4 sm:p-6 card hover-glow">
+              <div className="text-center p-4 sm:p-6 bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl hover:bg-white/10 hover:border-purple-500/30 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
                 <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">57+</div>
                 <div className="text-gray-400 text-sm sm:text-base">GitHub Repos</div>
               </div>
-              <div className="text-center p-4 sm:p-6 card hover-glow">
+              <div className="text-center p-4 sm:p-6 bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl hover:bg-white/10 hover:border-purple-500/30 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
                 <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">1.9k+</div>
                 <div className="text-gray-400 text-sm sm:text-base">Contributions</div>
               </div>
-              <div className="text-center p-4 sm:p-6 card hover-glow">
+              <div className="text-center p-4 sm:p-6 bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl hover:bg-white/10 hover:border-purple-500/30 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
                 <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">15+</div>
                 <div className="text-gray-400 text-sm sm:text-base">Technologies</div>
               </div>
-              <div className="text-center p-4 sm:p-6 card hover-glow">
+              <div className="text-center p-4 sm:p-6 bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl hover:bg-white/10 hover:border-purple-500/30 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
                 <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">4</div>
                 <div className="text-gray-400 text-sm sm:text-base">GitHub Followers</div>
               </div>
             </div>
 
             {/* Current Focus */}
-            <div className="p-4 sm:p-6 card hover-glow">
+            <div className="p-4 sm:p-6 bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl hover:bg-white/10 hover:border-purple-500/30 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
               <h3 className="text-lg sm:text-xl font-semibold mb-4 text-blue-400 text-center lg:text-left">Currently Working On</h3>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-center gap-3">

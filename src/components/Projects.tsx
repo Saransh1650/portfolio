@@ -13,26 +13,26 @@ const Projects = () => {
 
   const ProjectCard = ({ project }: { project: Project }) => (
     <div 
-      className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden hover:border-primary-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary-500/10"
+      className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/10"
       onMouseEnter={() => setHoveredProject(project.id)}
       onMouseLeave={() => setHoveredProject(null)}
     >
       {/* Featured Badge */}
       {project.featured && (
         <div className="absolute top-4 right-4 z-10">
-          <span className="bg-gradient-to-r from-primary-500 to-accent-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+          <span className="bg-gradient-to-r from-purple-500 to-teal-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
             ⭐ Featured
           </span>
         </div>
       )}
 
       {/* Project Header - Visual Area */}
-      <div className="relative h-48 bg-gradient-to-br from-primary-500/10 via-accent-500/10 to-primary-500/5 overflow-hidden">
+      <div className="relative h-48 bg-gradient-to-br from-purple-500/10 via-teal-500/10 to-purple-500/5 overflow-hidden">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-4 left-4 w-12 h-12 border-2 border-primary-400/40 rounded-lg rotate-12 group-hover:rotate-45 transition-transform duration-700"></div>
-          <div className="absolute top-8 right-8 w-8 h-8 border-2 border-accent-400/40 rounded rotate-45 group-hover:rotate-90 transition-transform duration-700 delay-100"></div>
-          <div className="absolute bottom-6 left-8 w-6 h-6 border-2 border-primary-300/40 rounded-full group-hover:scale-150 transition-transform duration-700 delay-200"></div>
+          <div className="absolute top-4 left-4 w-12 h-12 border-2 border-purple-400/40 rounded-lg rotate-12 group-hover:rotate-45 transition-transform duration-700"></div>
+          <div className="absolute top-8 right-8 w-8 h-8 border-2 border-teal-400/40 rounded rotate-45 group-hover:rotate-90 transition-transform duration-700 delay-100"></div>
+          <div className="absolute bottom-6 left-8 w-6 h-6 border-2 border-purple-300/40 rounded-full group-hover:scale-150 transition-transform duration-700 delay-200"></div>
         </div>
 
         {/* Category Icon */}

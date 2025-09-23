@@ -7,32 +7,29 @@ import Navigation from '@/components/Navigation';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-dark-950 text-gray-100 relative">
-      {/* Tech pattern background */}
-      <div className="tech-bg"></div>
-      
+    <div className="min-h-screen relative">
       {/* Navigation */}
       <Navigation />
       
       {/* Main content */}
-      <main className="relative z-10 pt-16 md:pt-20">
-        <section id="home" className="scroll-mt-16 md:scroll-mt-20">
+      <main className="relative z-10">
+        <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-transparent to-slate-900/50 scroll-mt-16 md:scroll-mt-20">
           <Hero />
         </section>
         
-        <section id="about" className="py-16 sm:py-20 lg:py-24 bg-dark-900 scroll-mt-16 md:scroll-mt-20">
+        <section id="about" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-900/50 to-gray-900/50 backdrop-blur-sm scroll-mt-16 md:scroll-mt-20">
           <About />
         </section>
         
-        <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-dark-950 scroll-mt-16 md:scroll-mt-20">
+        <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900/50 to-slate-900/50 backdrop-blur-sm scroll-mt-16 md:scroll-mt-20">
           <Projects />
         </section>
         
-        <section id="skills" className="py-16 sm:py-20 lg:py-24 bg-dark-900 scroll-mt-16 md:scroll-mt-20">
+        <section id="skills" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-900/50 to-gray-900/50 backdrop-blur-sm scroll-mt-16 md:scroll-mt-20">
           <Skills />
         </section>
         
-        <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-dark-950 scroll-mt-16 md:scroll-mt-20">
+        <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900/50 to-black/70 backdrop-blur-sm scroll-mt-16 md:scroll-mt-20">
           <Contact />
         </section>
       </main>
