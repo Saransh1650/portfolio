@@ -121,7 +121,7 @@ const Experience = () => {
               {/* Live Links */}
               <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-gray-600/30">
                 <a
-                  href="https://digitaldomi/get-app"
+                  href="https://digitaldomi.com/get-app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 hover:text-blue-300 rounded-lg border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 text-sm font-medium"
