@@ -221,19 +221,6 @@ const Contact = () => {
               type="submit"
               className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-4 rounded-lg font-semibold flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 text-lg"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                />
-              </svg>
               Send Message
             </button>
             {status && (
