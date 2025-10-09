@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -58,7 +58,13 @@ const Hero = () => {
       name: "App Store",
       href: "https://apps.apple.com/in/app/finora/id6753204750",
       icon: (
-        <img src="/app_store_logo.svg" alt="App Store" className="w-5 h-5" />
+        <Image
+          src="/app_store_logo.svg"
+          alt="App Store"
+          width={20}
+          height={20}
+          className="w-5 h-5"
+        />
       ),
     },
   ];
