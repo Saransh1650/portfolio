@@ -19,6 +19,113 @@ const Experience = () => {
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-start">
           {/* Experience Timeline */}
           <div className="space-y-8 lg:col-span-2">
+            {/* MedQT iOS Engineer Experience */}
+            <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 hover:border-emerald-500/30 hover:scale-[1.02] hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
+                    iOS Engineer
+                  </h3>
+                  <p className="text-emerald-400 font-semibold">MedQT</p>
+                </div>
+                <div className="text-gray-400 text-sm sm:text-base mt-2 sm:mt-0 sm:text-right">
+                  <p>Nov 2025 – Present</p>
+                  <p className="text-xs">Remote</p>
+                </div>
+              </div>
+
+              <div className="space-y-3 text-gray-300">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    Developed a native iOS medical application enabling users to
+                    securely store, access, and manage personal and family
+                    medical records with real-time alerts.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    Implemented Apple Wallet integration to generate digital
+                    health passes containing essential user information for
+                    quick access.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    Integrated biometric authentication (Face ID and Touch ID)
+                    to ensure secure and seamless login across user sessions.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    Enabled in-app payments using Apple’s payment frameworks,
+                    providing a secure and frictionless transaction experience.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-600/30">
+                {[
+                  "Swift",
+                  "SwiftUI",
+                  "iOS",
+                  "Apple Wallet",
+                  "Biometric Auth",
+                  "Apple Pay",
+                  "Push Notifications",
+                ].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-xs border border-emerald-500/20"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Live Links */}
+              <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-gray-600/30">
+                <a
+                  href="https://amelaymedtech.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 hover:text-emerald-300 rounded-lg border border-emerald-500/30 hover:border-emerald-400/50 transition-all duration-300 text-sm font-medium"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.559-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.559.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Company Site
+                </a>
+                <a
+                  href="https://apps.apple.com/us/app/medqt/id6752861022"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 hover:text-emerald-300 rounded-lg border border-emerald-500/30 hover:border-emerald-400/50 transition-all duration-300 text-sm font-medium"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M7 2C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2H7ZM7 0H17C19.2091 0 21 1.79086 21 4V20C21 22.2091 19.2091 24 17 24H7C4.79086 24 3 22.2091 3 20V4C3 1.79086 4.79086 0 7 0ZM12 20C11.4477 20 11 19.5523 11 19C11 18.4477 11.4477 18 12 18C12.5523 18 13 18.4477 13 19C13 19.5523 12.5523 20 12 20Z" />
+                  </svg>
+                  Mobile App
+                </a>
+              </div>
+            </div>
+
             {/* Domi Labs Experience */}
             <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 hover:border-purple-500/30 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
