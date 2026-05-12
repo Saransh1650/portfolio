@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import CurrentlyBuilding from '@/components/CurrentlyBuilding';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
@@ -11,6 +12,7 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
+        <CurrentlyBuilding />
         <Experience />
         <Projects />
         <Skills />

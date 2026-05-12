@@ -219,3 +219,8 @@ input:focus, textarea:focus {
   margin-right: 12px;
   flex-shrink: 0;
 }
+
+@keyframes pulse-nav {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}

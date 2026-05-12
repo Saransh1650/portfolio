@@ -12,7 +12,7 @@ const Navigation = () => {
       setIsScrolled(window.scrollY > 40);
 
       // Determine active section
-      const sections = ["home", "experience", "projects", "skills", "contact"];
+      const sections = ["home", "building", "experience", "projects", "skills", "contact"];
       const scrollPos = window.scrollY + 100;
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
@@ -28,11 +28,12 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home", id: "home" },
-    { name: "Experience", href: "#experience", id: "experience" },
-    { name: "Projects", href: "#projects", id: "projects" },
-    { name: "Skills", href: "#skills", id: "skills" },
-    { name: "Contact", href: "#contact", id: "contact" },
+    { name: "Home", href: "#home", id: "home", wip: false },
+    { name: "Building", href: "#building", id: "building", wip: true },
+    { name: "Experience", href: "#experience", id: "experience", wip: false },
+    { name: "Projects", href: "#projects", id: "projects", wip: false },
+    { name: "Skills", href: "#skills", id: "skills", wip: false },
+    { name: "Contact", href: "#contact", id: "contact", wip: false },
   ];
 
   return (
@@ -92,21 +93,55 @@ const Navigation = () => {
                 borderRadius: "6px",
                 textDecoration: "none",
                 transition: "color 0.2s ease, background-color 0.2s ease",
-                color: activeSection === item.id ? "var(--text-primary)" : "var(--text-muted)",
-                backgroundColor: activeSection === item.id ? "var(--hover)" : "transparent",
+                color:
+                  item.wip
+                    ? activeSection === item.id
+                      ? "var(--accent)"
+                      : "var(--accent)"
+                    : activeSection === item.id
+                    ? "var(--text-primary)"
+                    : "var(--text-muted)",
+                backgroundColor:
+                  activeSection === item.id
+                    ? item.wip
+                      ? "rgba(212, 168, 83, 0.1)"
+                      : "var(--hover)"
+                    : "transparent",
                 letterSpacing: "-0.01em",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                opacity: item.wip ? 0.85 : 1,
               }}
               onMouseEnter={(e) => {
                 if (activeSection !== item.id) {
-                  (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)";
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    item.wip ? "var(--accent)" : "var(--text-secondary)";
+                  (e.currentTarget as HTMLAnchorElement).style.opacity = "1";
                 }
               }}
               onMouseLeave={(e) => {
                 if (activeSection !== item.id) {
-                  (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-muted)";
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    item.wip ? "var(--accent)" : "var(--text-muted)";
+                  (e.currentTarget as HTMLAnchorElement).style.opacity =
+                    item.wip ? "0.85" : "1";
                 }
               }}
             >
+              {item.wip && (
+                <span
+                  style={{
+                    display: "inline-block",
+                    width: "5px",
+                    height: "5px",
+                    borderRadius: "50%",
+                    backgroundColor: "var(--accent)",
+                    animation: "pulse-nav 2s ease-in-out infinite",
+                    flexShrink: 0,
+                  }}
+                />
+              )}
               {item.name}
             </a>
           ))}
