@@ -59,11 +59,6 @@ const Skills = () => {
     },
   ];
 
-  const levelColor = (level: string) => {
-    if (level === "Expert") return "var(--accent)";
-    if (level === "Proficient") return "var(--text-secondary)";
-    return "var(--text-muted)";
-  };
 
   const otherTools = [
     "Firebase", "Supabase", "AWS S3", "GitHub Actions",
@@ -107,7 +102,7 @@ const Skills = () => {
             marginBottom: "48px",
           }}
         >
-          {primarySkills.map((skill, i) => (
+          {primarySkills.map((skill) => (
             <div
               key={skill.name}
               className="skill-item"

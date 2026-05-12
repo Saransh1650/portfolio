@@ -272,7 +272,7 @@ const Projects = () => {
                 lineHeight: 1.1,
               }}
             >
-              What I've built
+              What I&apos;ve built
             </h2>
           </div>
 
