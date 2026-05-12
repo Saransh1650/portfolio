@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const Experience = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -29,6 +30,7 @@ const Experience = () => {
     {
       title: "iOS Engineer",
       company: "MedQT",
+      logo: "/images/medqt.png",
       period: "Nov 2025 – Present",
       type: "Remote",
       companyUrl: "https://amelaymedtech.com/",
@@ -45,6 +47,7 @@ const Experience = () => {
     {
       title: "Founding Flutter Engineer",
       company: "Domi Labs",
+      logo: "/images/domi.png",
       period: "Oct 2024 – Present",
       type: "Remote",
       mobileUrl: "https://digitaldomi.com/get-app",
@@ -62,6 +65,7 @@ const Experience = () => {
     {
       title: "Flutter Freelancing Project",
       company: "Triumb",
+      logo: null,
       period: "Freelance",
       type: "Car Wash Booking System",
       previewUrl: "https://github.com/Saransh1650/triumb_preview",
@@ -137,30 +141,76 @@ const Experience = () => {
                   borderBottom: "1px solid var(--border)",
                 }}
               >
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
-                      fontSize: "1.25rem",
-                      fontWeight: 600,
-                      color: "var(--text-primary)",
-                      letterSpacing: "-0.02em",
-                      marginBottom: "4px",
-                    }}
-                  >
-                    {exp.title}
-                  </h3>
-                  <span
-                    style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
-                      fontSize: "0.9375rem",
-                      fontWeight: 600,
-                      color: "var(--accent)",
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    {exp.company}
-                  </span>
+                <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+                  {exp.logo && (
+                    <div
+                      style={{
+                        width: "56px",
+                        height: "56px",
+                        borderRadius: "12px",
+                        overflow: "hidden",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        border: "1px solid var(--border)",
+                      }}
+                    >
+                      <Image
+                        src={exp.logo}
+                        alt={exp.company}
+                        width={56}
+                        height={56}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  )}
+                  {!exp.logo && (
+                    <div
+                      style={{
+                        width: "56px",
+                        height: "56px",
+                        borderRadius: "12px",
+                        backgroundColor: "var(--muted)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        border: "1px solid var(--border)",
+                        color: "var(--text-muted)",
+                      }}
+                    >
+                      <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6.75h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h18" />
+                      </svg>
+                    </div>
+                  )}
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily: "'Space Grotesk', sans-serif",
+                        fontSize: "1.35rem",
+                        fontWeight: 700,
+                        color: "var(--text-primary)",
+                        letterSpacing: "-0.02em",
+                        marginBottom: "2px",
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {exp.title}
+                    </h3>
+                    <span
+                      style={{
+                        fontFamily: "'Space Grotesk', sans-serif",
+                        fontSize: "1rem",
+                        fontWeight: 600,
+                        color: "var(--accent)",
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
+                      {exp.company}
+                    </span>
+                  </div>
                 </div>
                 <div style={{ textAlign: "right" }}>
                   <div
@@ -194,7 +244,7 @@ const Experience = () => {
                     style={{
                       display: "flex",
                       gap: "12px",
-                      alignItems: "flex-start",
+                      alignItems: "center",
                       fontSize: "0.9375rem",
                       lineHeight: 1.65,
                       color: "var(--text-muted)",
@@ -204,7 +254,6 @@ const Experience = () => {
                     <span
                       style={{
                         flexShrink: 0,
-                        marginTop: "8px",
                         width: "4px",
                         height: "4px",
                         borderRadius: "50%",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const CurrentlyBuilding = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -24,7 +25,7 @@ const CurrentlyBuilding = () => {
     return () => observer.disconnect();
   }, []);
 
-  const stack = ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"];
+  const stack = ["Flutter (Android + iOS)", "TypeScript", "Supabase", "Docker", "AWS"];
 
   return (
     <section
@@ -142,20 +143,45 @@ const CurrentlyBuilding = () => {
                 </span>
               </div>
 
-              {/* Project name */}
-              <h3
-                style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: "clamp(1.5rem, 3vw, 2rem)",
-                  fontWeight: 700,
-                  letterSpacing: "-0.03em",
-                  color: "var(--text-primary)",
-                  marginBottom: "8px",
-                  lineHeight: 1.1,
-                }}
-              >
-                ZiroMarket
-              </h3>
+              {/* Project header with Logo */}
+              <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "12px" }}>
+                <div
+                  style={{
+                    width: "56px",
+                    height: "56px",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    border: "1px solid var(--border)",
+                  }}
+                >
+                  <Image
+                    src="/images/ziromarket.png"
+                    alt="ZiroMarket"
+                    width={56}
+                    height={56}
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                <div>
+                  <h3
+                    style={{
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontSize: "clamp(1.5rem, 3vw, 2rem)",
+                      fontWeight: 700,
+                      letterSpacing: "-0.03em",
+                      color: "var(--text-primary)",
+                      marginBottom: "4px",
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    Ziro Market
+                  </h3>
+                </div>
+              </div>
               <a
                 href="https://ziromarket.com"
                 target="_blank"
@@ -209,9 +235,7 @@ const CurrentlyBuilding = () => {
                   marginBottom: "28px",
                 }}
               >
-                A marketplace platform currently in active development. Building
-                it end-to-end — from architecture to UI — with a focus on
-                performance and clean UX. Not yet launched, but shipping soon.
+                Ziro Market tracks stock market news and activity in real time, analyzes how different sectors and companies are being affected, and highlights the trends driving the market. It helps users quickly understand what’s moving the market, which stocks or sectors are gaining attention, and why those movements are happening.
               </p>
 
               {/* Stack tags */}
@@ -306,10 +330,10 @@ const CurrentlyBuilding = () => {
                 Milestones
               </p>
               {[
-                { label: "Design system", done: true },
-                { label: "Auth & user flows", done: true },
-                { label: "Marketplace core", done: true },
-                { label: "Payments integration", done: false },
+                { label: "Live Data (WebSockets)", done: true },
+                { label: "CI/CD Frontend & Backend", done: true },
+                { label: "Heatmaps & Trending Stocks", done: true },
+                { label: "Portfolio Analytics", done: false },
                 { label: "Public beta", done: false },
                 { label: "Launch", done: false },
               ].map((item) => (

@@ -136,18 +136,18 @@ const Skills = () => {
                   width: "40px",
                   height: "40px",
                   borderRadius: "8px",
-                  backgroundColor: "var(--muted)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0,
+                  overflow: "hidden",
                 }}
               >
                 <Image
                   src={skill.image}
                   alt={skill.name}
-                  width={24}
-                  height={24}
+                  width={40}
+                  height={40}
                   style={{ objectFit: "contain" }}
                 />
               </div>
