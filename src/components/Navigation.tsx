@@ -86,7 +86,7 @@ const Navigation = () => {
               key={item.id}
               href={item.href}
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "0.875rem",
                 fontWeight: 500,
                 padding: "6px 14px",

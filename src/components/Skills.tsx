@@ -163,7 +163,7 @@ const Skills = () => {
                   </h3>
                   <span
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: "0.65rem",
                       letterSpacing: "0.06em",
                       textTransform: "uppercase",
@@ -173,7 +173,7 @@ const Skills = () => {
                 </div>
                 <p
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "0.8125rem",
                     color: "var(--text-muted)",
                     lineHeight: 1.5,
@@ -198,7 +198,7 @@ const Skills = () => {
           <hr style={{ flex: 1, border: "none", borderTop: "1px solid var(--border)" }} />
           <span
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "'Space Grotesk', sans-serif",
               fontSize: "0.68rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",

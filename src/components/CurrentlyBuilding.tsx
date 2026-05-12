@@ -131,7 +131,7 @@ const CurrentlyBuilding = () => {
                 />
                 <span
                   style={{
-                    fontFamily: "'JetBrains Mono', monospace",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "0.7rem",
                     fontWeight: 500,
                     letterSpacing: "0.1em",
@@ -187,7 +187,7 @@ const CurrentlyBuilding = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: "0.8rem",
                   color: "var(--text-muted)",
                   textDecoration: "none",
@@ -227,7 +227,7 @@ const CurrentlyBuilding = () => {
               {/* Description */}
               <p
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: "0.9375rem",
                   lineHeight: 1.7,
                   color: "var(--text-muted)",
@@ -266,7 +266,7 @@ const CurrentlyBuilding = () => {
                 >
                   <span
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: "0.8125rem",
                       fontWeight: 500,
                       color: "var(--text-secondary)",
@@ -276,7 +276,7 @@ const CurrentlyBuilding = () => {
                   </span>
                   <span
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: "0.75rem",
                       color: "var(--accent)",
                     }}
@@ -319,7 +319,7 @@ const CurrentlyBuilding = () => {
             >
               <p
                 style={{
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: "0.68rem",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
@@ -386,7 +386,7 @@ const CurrentlyBuilding = () => {
                   </div>
                   <span
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: "0.8125rem",
                       color: item.done
                         ? "var(--text-secondary)"

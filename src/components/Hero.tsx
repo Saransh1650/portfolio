@@ -142,7 +142,7 @@ const Hero = () => {
         >
           Saransh
           <br />
-          <span style={{ color: "var(--text-secondary)", fontWeight: 400 }}>Singhal</span>
+          Singhal
         </h1>
 
         {/* Tagline */}
@@ -177,7 +177,7 @@ const Hero = () => {
             color: "var(--text-muted)",
             maxWidth: "560px",
             marginBottom: "48px",
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'Space Grotesk', sans-serif",
           }}
         >
           I build polished mobile applications for iOS and cross-platform with a
@@ -191,8 +191,8 @@ const Hero = () => {
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "64px" }}>
           <a href="#contact" className="btn-primary">
             Get in touch
-            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
             </svg>
           </a>
           <a href="#projects" className="btn-secondary">
@@ -219,7 +219,7 @@ const Hero = () => {
                 color: "var(--text-muted)",
                 textDecoration: "none",
                 transition: "color 0.2s ease, border-color 0.2s ease",
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Space Grotesk', sans-serif",
                 fontWeight: 500,
               }}
               onMouseEnter={(e) => {
@@ -267,7 +267,7 @@ const Hero = () => {
               </div>
               <div
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: "0.8125rem",
                   color: "var(--text-muted)",
                 }}
@@ -293,7 +293,7 @@ const Hero = () => {
       >
         <span
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "'Space Grotesk', sans-serif",
             fontSize: "0.65rem",
             letterSpacing: "0.12em",
             textTransform: "uppercase",

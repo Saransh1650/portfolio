@@ -215,7 +215,7 @@ const Experience = () => {
                 <div style={{ textAlign: "right" }}>
                   <div
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: "0.8rem",
                       color: "var(--text-secondary)",
                       marginBottom: "2px",
@@ -225,7 +225,7 @@ const Experience = () => {
                   </div>
                   <div
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: "0.72rem",
                       color: "var(--text-muted)",
                       letterSpacing: "0.04em",
@@ -248,7 +248,7 @@ const Experience = () => {
                       fontSize: "0.9375rem",
                       lineHeight: 1.65,
                       color: "var(--text-muted)",
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Space Grotesk', sans-serif",
                     }}
                   >
                     <span
@@ -291,7 +291,7 @@ const Experience = () => {
                       color: "var(--text-secondary)",
                       textDecoration: "none",
                       transition: "all 0.2s ease",
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Space Grotesk', sans-serif",
                     }}
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLAnchorElement;
@@ -327,7 +327,7 @@ const Experience = () => {
                       color: "var(--text-secondary)",
                       textDecoration: "none",
                       transition: "all 0.2s ease",
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Space Grotesk', sans-serif",
                     }}
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLAnchorElement;
@@ -363,7 +363,7 @@ const Experience = () => {
                       color: "var(--text-secondary)",
                       textDecoration: "none",
                       transition: "all 0.2s ease",
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Space Grotesk', sans-serif",
                     }}
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLAnchorElement;
@@ -399,7 +399,7 @@ const Experience = () => {
                       color: "var(--text-secondary)",
                       textDecoration: "none",
                       transition: "all 0.2s ease",
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Space Grotesk', sans-serif",
                     }}
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLAnchorElement;
@@ -435,7 +435,7 @@ const Experience = () => {
                       color: "var(--text-secondary)",
                       textDecoration: "none",
                       transition: "all 0.2s ease",
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: "'Space Grotesk', sans-serif",
                     }}
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLAnchorElement;

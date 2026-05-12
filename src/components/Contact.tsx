@@ -77,7 +77,7 @@ const Contact = () => {
     borderRadius: "8px",
     fontSize: "0.9375rem",
     color: "var(--text-primary)",
-    fontFamily: "'Inter', sans-serif",
+    fontFamily: "'Space Grotesk', sans-serif",
     outline: "none",
     transition: "border-color 0.2s ease",
   };
@@ -119,7 +119,7 @@ const Contact = () => {
           <div>
             <p
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "1rem",
                 lineHeight: 1.75,
                 color: "var(--text-muted)",
@@ -186,7 +186,7 @@ const Contact = () => {
                     </div>
                     <div
                       style={{
-                        fontFamily: "'JetBrains Mono', monospace",
+                        fontFamily: "'Space Grotesk', sans-serif",
                         fontSize: "0.775rem",
                         color: "var(--text-muted)",
                       }}
@@ -237,7 +237,7 @@ const Contact = () => {
                   htmlFor="name"
                   style={{
                     display: "block",
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "0.8125rem",
                     fontWeight: 500,
                     color: "var(--text-secondary)",
@@ -269,7 +269,7 @@ const Contact = () => {
                   htmlFor="email"
                   style={{
                     display: "block",
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "0.8125rem",
                     fontWeight: 500,
                     color: "var(--text-secondary)",
@@ -301,7 +301,7 @@ const Contact = () => {
                   htmlFor="message"
                   style={{
                     display: "block",
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "0.8125rem",
                     fontWeight: 500,
                     color: "var(--text-secondary)",
@@ -334,10 +334,10 @@ const Contact = () => {
                 className="btn-primary"
                 style={{ width: "100%", justifyContent: "center", padding: "13px 24px", fontSize: "0.9375rem", opacity: status === "sending" ? 0.7 : 1 }}
               >
-                {status === "sending" ? "Sending..." : "Send message"}
+                {status === "sending" ? "Sending..." : "Send Message"}
                 {status !== "sending" && (
-                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
                   </svg>
                 )}
               </button>
@@ -345,7 +345,7 @@ const Contact = () => {
               {status === "success" && (
                 <p
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "0.875rem",
                     color: "#4ade80",
                     textAlign: "center",
@@ -361,7 +361,7 @@ const Contact = () => {
               {status === "error" && (
                 <p
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'Space Grotesk', sans-serif",
                     fontSize: "0.875rem",
                     color: "#f87171",
                     textAlign: "center",

@@ -133,7 +133,7 @@ const Projects = () => {
           </span>
           <span
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "'Space Grotesk', sans-serif",
               fontSize: "0.68rem",
               color: "var(--text-muted)",
               letterSpacing: "0.08em",
@@ -162,7 +162,7 @@ const Projects = () => {
         {/* Description */}
         <p
           style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'Space Grotesk', sans-serif",
             fontSize: "0.875rem",
             lineHeight: 1.65,
             color: "var(--text-muted)",
@@ -207,7 +207,7 @@ const Projects = () => {
                 fontWeight: 500,
                 color: "var(--text-muted)",
                 textDecoration: "none",
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Space Grotesk', sans-serif",
                 transition: "color 0.2s ease",
               }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)"; }}
