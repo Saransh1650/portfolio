@@ -1,370 +1,413 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 const Experience = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll(".animate-card").forEach((el, i) => {
+              setTimeout(() => {
+                (el as HTMLElement).style.opacity = "1";
+                (el as HTMLElement).style.transform = "translateY(0)";
+              }, i * 100);
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const experiences = [
+    {
+      title: "iOS Engineer",
+      company: "MedQT",
+      period: "Nov 2025 – Present",
+      type: "Remote",
+      companyUrl: "https://amelaymedtech.com/",
+      appUrl: "https://apps.apple.com/us/app/medqt/id6752861022",
+      bullets: [
+        "Developed native iOS medical app for secure storage and management of personal and family health records with real-time alerts.",
+        "Implemented Apple Wallet integration to generate digital health passes with essential user info for quick access.",
+        "Integrated biometric authentication (Face ID / Touch ID) for secure and seamless login across sessions.",
+        "Enabled in-app payments via Apple's payment frameworks for frictionless transactions.",
+      ],
+      stack: ["Swift", "SwiftUI", "iOS", "Apple Wallet", "Biometric Auth", "Apple Pay", "Push Notifications"],
+      accentColor: "#d4a853",
+    },
+    {
+      title: "Founding Flutter Engineer",
+      company: "Domi Labs",
+      period: "Oct 2024 – Present",
+      type: "Remote",
+      mobileUrl: "https://digitaldomi.com/get-app",
+      webUrl: "https://web.digitaldomi.com",
+      bullets: [
+        "Built Flutter mobile apps with ML-powered image scanning, custom graphics via CustomPainter, push notifications, and deep linking.",
+        "Delivered Flutter Web App with CI/CD pipelines using GitHub Actions and AWS S3, reusing state management across mobile and web.",
+        "Created a custom cross-platform design package for visual and functional consistency.",
+        "Established clean architecture patterns, modular organization, and automated testing/deployment workflows.",
+        "Built a real-time chat feature using WebSockets for low-latency communication.",
+      ],
+      stack: ["Flutter", "Machine Learning", "CustomPainter", "WebSockets", "CI/CD", "AWS S3", "GitHub Actions"],
+      accentColor: "#d4a853",
+    },
+    {
+      title: "Flutter Freelancing Project",
+      company: "Triumb",
+      period: "Freelance",
+      type: "Car Wash Booking System",
+      previewUrl: "https://github.com/Saransh1650/triumb_preview",
+      bullets: [
+        "Built a booking system for scheduling and managing car wash appointments with an intuitive UI.",
+        "Integrated Firebase Firestore as a real-time database for reliable booking and user data.",
+        "Configured push notifications for booking confirmations, updates, and reminders.",
+        "Integrated Razorpay payment gateway for secure in-app transactions.",
+      ],
+      stack: ["Flutter", "Firebase Firestore", "Push Notifications", "Razorpay", "Payment Gateway"],
+      accentColor: "#d4a853",
+    },
+  ];
+
   return (
     <section
       id="experience"
-      className="flex items-center justify-center relative overflow-visible scroll-mt-16 md:scroll-mt-20 py-0"
+      ref={sectionRef}
+      style={{ padding: "96px 0", borderTop: "1px solid var(--border)" }}
     >
-      <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 32px" }}>
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Professional{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-600 bg-clip-text text-transparent">
-              Experience
-            </span>
+        <div style={{ marginBottom: "56px" }}>
+          <span className="section-label" style={{ display: "block", marginBottom: "12px" }}>
+            02 / Experience
+          </span>
+          <h2
+            style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+              fontWeight: 700,
+              letterSpacing: "-0.03em",
+              color: "var(--text-primary)",
+              lineHeight: 1.1,
+            }}
+          >
+            Where I've worked
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-teal-500 mx-auto"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-start">
-          {/* Experience Timeline */}
-          <div className="space-y-8 lg:col-span-2">
-            {/* MedQT iOS Engineer Experience */}
-            <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 hover:border-emerald-500/30 hover:scale-[1.02] hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+        {/* Experience Cards */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+          {experiences.map((exp, i) => (
+            <div
+              key={i}
+              className="animate-card"
+              style={{
+                backgroundColor: "var(--card)",
+                border: "1px solid var(--border)",
+                borderRadius: "10px",
+                padding: "32px",
+                opacity: 0,
+                transform: "translateY(16px)",
+                transition: "opacity 0.5s ease, transform 0.5s ease, border-color 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = "#333";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)";
+              }}
+            >
+              {/* Card Header */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "flex-start",
+                  flexWrap: "wrap",
+                  gap: "12px",
+                  marginBottom: "24px",
+                  paddingBottom: "24px",
+                  borderBottom: "1px solid var(--border)",
+                }}
+              >
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
-                    iOS Engineer
+                  <h3
+                    style={{
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontSize: "1.25rem",
+                      fontWeight: 600,
+                      color: "var(--text-primary)",
+                      letterSpacing: "-0.02em",
+                      marginBottom: "4px",
+                    }}
+                  >
+                    {exp.title}
                   </h3>
-                  <p className="text-emerald-400 font-semibold">MedQT</p>
-                </div>
-                <div className="text-gray-400 text-sm sm:text-base mt-2 sm:mt-0 sm:text-right">
-                  <p>Nov 2025 – Present</p>
-                  <p className="text-xs">Remote</p>
-                </div>
-              </div>
-
-              <div className="space-y-3 text-gray-300">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Developed a native iOS medical application enabling users to
-                    securely store, access, and manage personal and family
-                    medical records with real-time alerts.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Implemented Apple Wallet integration to generate digital
-                    health passes containing essential user information for
-                    quick access.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Integrated biometric authentication (Face ID and Touch ID)
-                    to ensure secure and seamless login across user sessions.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Enabled in-app payments using Apple’s payment frameworks,
-                    providing a secure and frictionless transaction experience.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-600/30">
-                {[
-                  "Swift",
-                  "SwiftUI",
-                  "iOS",
-                  "Apple Wallet",
-                  "Biometric Auth",
-                  "Apple Pay",
-                  "Push Notifications",
-                ].map((tech) => (
                   <span
-                    key={tech}
-                    className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-xs border border-emerald-500/20"
+                    style={{
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontSize: "0.9375rem",
+                      fontWeight: 600,
+                      color: "var(--accent)",
+                      letterSpacing: "-0.01em",
+                    }}
                   >
-                    {tech}
+                    {exp.company}
                   </span>
-                ))}
+                </div>
+                <div style={{ textAlign: "right" }}>
+                  <div
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: "0.8rem",
+                      color: "var(--text-secondary)",
+                      marginBottom: "2px",
+                    }}
+                  >
+                    {exp.period}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: "0.72rem",
+                      color: "var(--text-muted)",
+                      letterSpacing: "0.04em",
+                    }}
+                  >
+                    {exp.type}
+                  </div>
+                </div>
               </div>
 
-              {/* Live Links */}
-              <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-gray-600/30">
-                <a
-                  href="https://amelaymedtech.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 hover:text-emerald-300 rounded-lg border border-emerald-500/30 hover:border-emerald-400/50 transition-all duration-300 text-sm font-medium"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+              {/* Bullets */}
+              <ul style={{ listStyle: "none", margin: "0 0 24px 0", padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+                {exp.bullets.map((bullet, j) => (
+                  <li
+                    key={j}
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      alignItems: "flex-start",
+                      fontSize: "0.9375rem",
+                      lineHeight: 1.65,
+                      color: "var(--text-muted)",
+                      fontFamily: "'Inter', sans-serif",
+                    }}
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.559-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.559.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
-                      clipRule="evenodd"
+                    <span
+                      style={{
+                        flexShrink: 0,
+                        marginTop: "8px",
+                        width: "4px",
+                        height: "4px",
+                        borderRadius: "50%",
+                        backgroundColor: "var(--accent)",
+                      }}
                     />
-                  </svg>
-                  Company Site
-                </a>
-                <a
-                  href="https://apps.apple.com/us/app/medqt/id6752861022"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 hover:text-emerald-300 rounded-lg border border-emerald-500/30 hover:border-emerald-400/50 transition-all duration-300 text-sm font-medium"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M7 2C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2H7ZM7 0H17C19.2091 0 21 1.79086 21 4V20C21 22.2091 19.2091 24 17 24H7C4.79086 24 3 22.2091 3 20V4C3 1.79086 4.79086 0 7 0ZM12 20C11.4477 20 11 19.5523 11 19C11 18.4477 11.4477 18 12 18C12.5523 18 13 18.4477 13 19C13 19.5523 12.5523 20 12 20Z" />
-                  </svg>
-                  Mobile App
-                </a>
-              </div>
-            </div>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
 
-            {/* Domi Labs Experience */}
-            <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 hover:border-purple-500/30 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
-                    Founding Flutter Engineer
-                  </h3>
-                  <p className="text-blue-400 font-semibold">Domi Labs</p>
-                </div>
-                <div className="text-gray-400 text-sm sm:text-base mt-2 sm:mt-0 sm:text-right">
-                  <p>Oct 2024 – Present</p>
-                  <p className="text-xs">Remote</p>
-                </div>
-              </div>
-
-              <div className="space-y-3 text-gray-300">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Developed and delivered Flutter mobile applications,
-                    implementing{" "}
-                    <span className="text-blue-400 font-medium">
-                      image scanning with ML
-                    </span>
-                    , custom graphics and UI rendering using{" "}
-                    <span className="text-blue-400 font-medium">
-                      CustomPainter
-                    </span>
-                    , real-time push notifications, and seamless in-app
-                    navigation with deep linking.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Developed and delivered{" "}
-                    <span className="text-blue-400 font-medium">
-                      Flutter Web App with CI/CD pipelines
-                    </span>{" "}
-                    using GitHub Actions and AWS S3, while reusing the state
-                    management logic across mobile and web to maximize
-                    efficiency and consistency.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Created a{" "}
-                    <span className="text-blue-400 font-medium">
-                      custom cross-platform Design Package
-                    </span>{" "}
-                    maintaining visual and functional consistency across mobile
-                    and web applications.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Established{" "}
-                    <span className="text-blue-400 font-medium">
-                      scalable code practices
-                    </span>{" "}
-                    by introducing clean architecture patterns, modular feature
-                    organization, and GitHub Actions for automated testing and
-                    deployment.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Built a{" "}
-                    <span className="text-blue-400 font-medium">
-                      real-time chat feature using WebSockets
-                    </span>
-                    , enabling low-latency communication and interactive user
-                    experiences.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-600/30">
-                {[
-                  "Flutter",
-                  "Machine Learning",
-                  "CustomPainter",
-                  "WebSockets",
-                  "CI/CD",
-                  "AWS S3",
-                  "GitHub Actions",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs border border-blue-500/20"
-                  >
-                    {tech}
-                  </span>
+              {/* Stack tags */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "20px" }}>
+                {exp.stack.map((tech) => (
+                  <span key={tech} className="tag">{tech}</span>
                 ))}
               </div>
 
-              {/* Live Links */}
-              <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-gray-600/30">
-                <a
-                  href="https://digitaldomi.com/get-app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 hover:text-blue-300 rounded-lg border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 text-sm font-medium"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+              {/* Links */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                {exp.companyUrl && (
+                  <a
+                    href={exp.companyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      padding: "6px 14px",
+                      borderRadius: "6px",
+                      border: "1px solid var(--border)",
+                      fontSize: "0.8rem",
+                      fontWeight: 500,
+                      color: "var(--text-secondary)",
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--accent)";
+                      el.style.color = "var(--accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--border)";
+                      el.style.color = "var(--text-secondary)";
+                    }}
                   >
-                    <path d="M7 2C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2H7ZM7 0H17C19.2091 0 21 1.79086 21 4V20C21 22.2091 19.2091 24 17 24H7C4.79086 24 3 22.2091 3 20V4C3 1.79086 4.79086 0 7 0ZM12 20C11.4477 20 11 19.5523 11 19C11 18.4477 11.4477 18 12 18C12.5523 18 13 18.4477 13 19C13 19.5523 12.5523 20 12 20Z" />
-                  </svg>
-                  Mobile App
-                </a>
-                <a
-                  href="https://web.digitaldomi.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-purple-500/20 hover:bg-purple-500/30 text-purple-400 hover:text-purple-300 rounded-lg border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 text-sm font-medium"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Company Site
+                  </a>
+                )}
+                {exp.appUrl && (
+                  <a
+                    href={exp.appUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      padding: "6px 14px",
+                      borderRadius: "6px",
+                      border: "1px solid var(--border)",
+                      fontSize: "0.8rem",
+                      fontWeight: 500,
+                      color: "var(--text-secondary)",
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--accent)";
+                      el.style.color = "var(--accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--border)";
+                      el.style.color = "var(--text-secondary)";
+                    }}
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.559-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.559.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Web App
-                </a>
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    App Store
+                  </a>
+                )}
+                {exp.mobileUrl && (
+                  <a
+                    href={exp.mobileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      padding: "6px 14px",
+                      borderRadius: "6px",
+                      border: "1px solid var(--border)",
+                      fontSize: "0.8rem",
+                      fontWeight: 500,
+                      color: "var(--text-secondary)",
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--accent)";
+                      el.style.color = "var(--accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--border)";
+                      el.style.color = "var(--text-secondary)";
+                    }}
+                  >
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    Mobile App
+                  </a>
+                )}
+                {exp.webUrl && (
+                  <a
+                    href={exp.webUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      padding: "6px 14px",
+                      borderRadius: "6px",
+                      border: "1px solid var(--border)",
+                      fontSize: "0.8rem",
+                      fontWeight: 500,
+                      color: "var(--text-secondary)",
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--accent)";
+                      el.style.color = "var(--accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--border)";
+                      el.style.color = "var(--text-secondary)";
+                    }}
+                  >
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                    Web App
+                  </a>
+                )}
+                {exp.previewUrl && (
+                  <a
+                    href={exp.previewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      padding: "6px 14px",
+                      borderRadius: "6px",
+                      border: "1px solid var(--border)",
+                      fontSize: "0.8rem",
+                      fontWeight: 500,
+                      color: "var(--text-secondary)",
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--accent)";
+                      el.style.color = "var(--accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLAnchorElement;
+                      el.style.borderColor = "var(--border)";
+                      el.style.color = "var(--text-secondary)";
+                    }}
+                  >
+                    <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                    </svg>
+                    GitHub Preview
+                  </a>
+                )}
               </div>
             </div>
-
-            {/* Triumb Freelancing Project */}
-            <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 hover:border-purple-500/30 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
-                    Flutter Freelancing Project
-                  </h3>
-                  <p className="text-purple-400 font-semibold">Triumb</p>
-                </div>
-                <div className="text-gray-400 text-sm sm:text-base mt-2 sm:mt-0 sm:text-right">
-                  <p>Freelance Project</p>
-                  <p className="text-xs">Car Wash Booking System</p>
-                </div>
-              </div>
-
-              <div className="space-y-3 text-gray-300">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Developed a{" "}
-                    <span className="text-purple-400 font-medium">
-                      booking system
-                    </span>{" "}
-                    that allows users to seamlessly schedule and manage car wash
-                    appointments with intuitive user interface.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Integrated{" "}
-                    <span className="text-purple-400 font-medium">
-                      Firebase Firestore as a real-time database
-                    </span>
-                    , delivering fast, reliable storage and retrieval of booking
-                    and user data.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Configured{" "}
-                    <span className="text-purple-400 font-medium">
-                      push notifications
-                    </span>{" "}
-                    to send booking confirmations, updates, and reminders,
-                    improving user engagement and retention.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    Integrated{" "}
-                    <span className="text-purple-400 font-medium">
-                      Razorpay payment gateway
-                    </span>{" "}
-                    enabling secure and seamless in-app transactions for
-                    services with multiple payment options.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-600/30">
-                {[
-                  "Flutter",
-                  "Firebase Firestore",
-                  "Push Notifications",
-                  "Razorpay",
-                  "Payment Gateway",
-                  "Booking System",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs border border-purple-500/20"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              {/* Live Links */}
-              <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-gray-600/30">
-                <a
-                  href="https://github.com/Saransh1650/triumb_preview"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-purple-500/20 hover:bg-purple-500/30 text-purple-400 hover:text-purple-300 rounded-lg border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 text-sm font-medium"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10zm-1-15h2v6h-2zm0 8h2v2h-2z" />
-                  </svg>
-                  GitHub Preview
-                </a>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

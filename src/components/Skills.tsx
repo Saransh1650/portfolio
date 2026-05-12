@@ -1,81 +1,229 @@
-import Image from 'next/image';
+"use client";
+
+import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 const Skills = () => {
-  const technologies = [
-    { 
-      name: 'Flutter',
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
-      color: 'from-blue-400 to-blue-600'
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll(".skill-item").forEach((el, i) => {
+              setTimeout(() => {
+                (el as HTMLElement).style.opacity = "1";
+                (el as HTMLElement).style.transform = "translateY(0)";
+              }, i * 60);
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const primarySkills = [
+    {
+      name: "Swift / SwiftUI",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+      desc: "Native iOS development, ARKit, HealthKit, Core Data",
     },
-    { 
-      name: 'Swift',
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg',
-      color: 'from-orange-400 to-red-500'
+    {
+      name: "Flutter",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+      desc: "Cross-platform mobile & web, custom rendering, CI/CD",
     },
-    { 
-      name: 'React Native',
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-      color: 'from-cyan-400 to-blue-500'
+    {
+      name: "React Native",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      desc: "Cross-platform apps, state management, native modules",
     },
-    { 
-      name: 'Python',
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-      color: 'from-yellow-400 to-orange-500'
+    {
+      name: "Python",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      desc: "ML, NLP, trading algorithms, automation",
     },
-    { 
-      name: 'Solidity',
-      image: 'https://docs.soliditylang.org/en/v0.8.20/_static/logo.svg',
-      color: 'from-gray-400 to-gray-600'
+    {
+      name: "Solidity",
+      image: "https://docs.soliditylang.org/en/v0.8.20/_static/logo.svg",
+      desc: "Smart contracts, NFT standards, Ethereum",
     },
-    { 
-      name: 'TypeScript',
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-      color: 'from-blue-500 to-indigo-600'
+    {
+      name: "TypeScript",
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      desc: "Type-safe web development, Next.js, React",
     },
   ];
 
-  return (
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-          Skills & <span className="bg-gradient-to-r from-purple-400 to-blue-600 bg-clip-text text-transparent">Technologies</span>
-        </h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-          Technologies I work with to bring ideas to life
-        </p>
-        <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-teal-500 mx-auto"></div>
-      </div>
+  const levelColor = (level: string) => {
+    if (level === "Expert") return "var(--accent)";
+    if (level === "Proficient") return "var(--text-secondary)";
+    return "var(--text-muted)";
+  };
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {technologies.map((tech, index) => (
-          <div 
-            key={tech.name} 
-            className="group bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 hover:bg-white/10 hover:border-purple-500/30 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-500 ease-out"
-            style={{ 
-              animationDelay: `${index * 0.1}s`
+  const otherTools = [
+    "Firebase", "Supabase", "AWS S3", "GitHub Actions",
+    "WalletConnect", "Web3", "ARKit", "ARCore",
+    "HealthKit", "Apple Pay", "WebSockets", "REST APIs",
+    "Core Data", "SwiftData", "Razorpay", "IPFS",
+  ];
+
+  return (
+    <section
+      id="skills"
+      ref={sectionRef}
+      style={{ padding: "96px 0", borderTop: "1px solid var(--border)" }}
+    >
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 32px" }}>
+        {/* Section Header */}
+        <div style={{ marginBottom: "56px" }}>
+          <span className="section-label" style={{ display: "block", marginBottom: "12px" }}>
+            04 / Skills
+          </span>
+          <h2
+            style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+              fontWeight: 700,
+              letterSpacing: "-0.03em",
+              color: "var(--text-primary)",
+              lineHeight: 1.1,
             }}
           >
-            <div className="flex flex-col items-center text-center space-y-4">
-              <div className={`p-4 rounded-full bg-gradient-to-r ${tech.color} transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 animate-pulse`}>
-                <div className="transform group-hover:animate-bounce">
-                  <Image 
-                    src={tech.image} 
-                    alt={tech.name}
-                    width={48}
-                    height={48}
-                    className="w-12 h-12 object-contain"
-                  />
-                </div>
+            Tools & technologies
+          </h2>
+        </div>
+
+        {/* Primary Skills */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gap: "16px",
+            marginBottom: "48px",
+          }}
+        >
+          {primarySkills.map((skill, i) => (
+            <div
+              key={skill.name}
+              className="skill-item"
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "16px",
+                padding: "20px",
+                backgroundColor: "var(--card)",
+                border: "1px solid var(--border)",
+                borderRadius: "10px",
+                opacity: 0,
+                transform: "translateY(12px)",
+                transition: "opacity 0.4s ease, transform 0.4s ease, border-color 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = "#333";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)";
+              }}
+            >
+              {/* Icon */}
+              <div
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "8px",
+                  backgroundColor: "var(--muted)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <Image
+                  src={skill.image}
+                  alt={skill.name}
+                  width={24}
+                  height={24}
+                  style={{ objectFit: "contain" }}
+                />
               </div>
-              <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-600 group-hover:bg-clip-text transition-all duration-300">
-                {tech.name}
-              </h3>
-              <div className={`w-16 h-1 bg-gradient-to-r ${tech.color} rounded-full opacity-60 group-hover:opacity-100 group-hover:w-24 transition-all duration-300`}></div>
+
+              {/* Content */}
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
+                  <h3
+                    style={{
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontSize: "0.9375rem",
+                      fontWeight: 600,
+                      color: "var(--text-primary)",
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    {skill.name}
+                  </h3>
+                  <span
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: "0.65rem",
+                      letterSpacing: "0.06em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                  </span>
+                </div>
+                <p
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: "0.8125rem",
+                    color: "var(--text-muted)",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {skill.desc}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Divider with label */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "16px",
+            marginBottom: "24px",
+          }}
+        >
+          <hr style={{ flex: 1, border: "none", borderTop: "1px solid var(--border)" }} />
+          <span
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: "0.68rem",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--text-muted)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Also worked with
+          </span>
+          <hr style={{ flex: 1, border: "none", borderTop: "1px solid var(--border)" }} />
+        </div>
+
+        {/* Other tools */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+          {otherTools.map((tool) => (
+            <span key={tool} className="tag">{tool}</span>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

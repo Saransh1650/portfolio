@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Saransh Singhal - Portfolio",
-  description: "Mobile App Developer & Blockchain Enthusiast",
+  title: "Saransh Singhal — Mobile Engineer",
+  description:
+    "Mobile App Developer specializing in Swift, Flutter, and React Native. Building real-world apps with a focus on performance and user experience.",
+  keywords: ["mobile developer", "iOS engineer", "Flutter", "Swift", "SwiftUI", "React Native"],
 };
 
 export default function RootLayout({
@@ -24,20 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white min-h-screen overflow-x-hidden leading-relaxed`}
-      >
-        {/* Animated background elements */}
-        <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse"></div>
-          <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-teal-500/10 rounded-full filter blur-3xl animate-pulse animation-delay-2000"></div>
-          <div className="absolute top-1/2 left-3/4 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl animate-pulse animation-delay-4000"></div>
-        </div>
-        
-        <div className="relative z-10">
-          {children}
-        </div>
-      </body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={`${inter.variable} antialiased`}>{children}</body>
     </html>
   );
 }

@@ -1,1 +1,221 @@
 @import "tailwindcss";
+
+:root {
+  --bg: #0a0a0a;
+  --card: #141414;
+  --border: #222222;
+  --hover: #1a1a1a;
+  --muted: #2a2a2a;
+  --text-primary: #f0ede8;
+  --text-secondary: #a8a29e;
+  --text-muted: #6b6560;
+  --accent: #d4a853;
+  --accent-light: #e8c47a;
+  --accent-dark: #b8893a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle dot grid background */
+.dot-grid {
+  background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Section separator line */
+.section-line {
+  width: 48px;
+  height: 2px;
+  background-color: var(--accent);
+  display: block;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Card styles */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.card:hover {
+  border-color: #333333;
+  background-color: var(--hover);
+}
+
+/* Tag/Badge */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--muted);
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.tag-accent {
+  background-color: rgba(212, 168, 83, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(212, 168, 83, 0.2);
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background-color: var(--accent);
+  color: #0a0a0a;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background-color: var(--accent-light);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 24px;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+.btn-secondary:hover {
+  border-color: #444444;
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* Accent text */
+.text-accent {
+  color: var(--accent);
+}
+
+/* Section heading style */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Focus styles */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px rgba(212, 168, 83, 0.12);
+}
+
+/* Horizontal divider */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* Link underline on hover */
+.link-hover {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+.link-hover:hover {
+  color: var(--text-primary);
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent);
+  transition: width 0.25s ease;
+}
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* Animation utilities */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Numbered list style */
+.numbered-list-item::before {
+  content: attr(data-num);
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-right: 12px;
+  flex-shrink: 0;
+}

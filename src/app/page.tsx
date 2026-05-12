@@ -7,32 +7,25 @@ import Navigation from '@/components/Navigation';
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative">
-      {/* Navigation */}
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--bg)' }}>
       <Navigation />
-      
-      {/* Main content */}
-      <main className="relative z-10">
-        <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-transparent to-slate-900/50 scroll-mt-16 md:scroll-mt-20">
-          <Hero />
-        </section>
-        
-        <section id="about" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-900/50 to-gray-900/50 backdrop-blur-sm scroll-mt-16 md:scroll-mt-20">
-          <Experience />
-        </section>
-        
-        <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900/50 to-slate-900/50 backdrop-blur-sm scroll-mt-16 md:scroll-mt-20">
-          <Projects />
-        </section>
-        
-        <section id="skills" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-900/50 to-gray-900/50 backdrop-blur-sm scroll-mt-16 md:scroll-mt-20">
-          <Skills />
-        </section>
-        
-        <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900/50 to-black/70 backdrop-blur-sm scroll-mt-16 md:scroll-mt-20">
-          <Contact />
-        </section>
+      <main>
+        <Hero />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
       </main>
+      <footer style={{ borderTop: '1px solid var(--border)', padding: '32px 0' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: '0.875rem', color: 'var(--text-primary)' }}>
+            Saransh Singhal
+          </span>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.72rem', color: 'var(--text-muted)', letterSpacing: '0.06em' }}>
+            © 2025 · Built with Next.js
+          </span>
+        </div>
+      </footer>
     </div>
   );
 }
