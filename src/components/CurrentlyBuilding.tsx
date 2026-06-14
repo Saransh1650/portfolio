@@ -40,7 +40,7 @@ const CurrentlyBuilding = () => {
             className="section-label"
             style={{ display: "block", marginBottom: "12px" }}
           >
-            Currently building
+            Recently shipped
           </span>
           <h2
             style={{
@@ -52,7 +52,7 @@ const CurrentlyBuilding = () => {
               lineHeight: 1.1,
             }}
           >
-            Work in progress
+Launched & live
           </h2>
         </div>
 
@@ -86,7 +86,7 @@ const CurrentlyBuilding = () => {
                 top: 0,
                 left: 0,
                 height: "100%",
-                width: "55%",
+                width: "100%",
                 backgroundColor: "var(--accent)",
                 borderRadius: "0 2px 2px 0",
               }}
@@ -139,7 +139,7 @@ const CurrentlyBuilding = () => {
                     color: "var(--accent)",
                   }}
                 >
-                  Active development
+                  Live now
                 </span>
               </div>
 
@@ -254,55 +254,74 @@ const CurrentlyBuilding = () => {
                 ))}
               </div>
 
-              {/* Progress */}
-              <div>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "8px",
-                  }}
-                >
-                  <span
+              {/* Store links */}
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "10px",
+                }}
+              >
+                {[
+                  {
+                    label: "Play Store",
+                    href: "https://play.google.com/store/apps/details?id=com.ziro.market",
+                  },
+                  {
+                    label: "App Store (TestFlight)",
+                    href: "https://testflight.apple.com/join/TDE2rMGJ",
+                  },
+                ].map((store) => (
+                  <a
+                    key={store.label}
+                    href={store.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      padding: "9px 16px",
+                      borderRadius: "8px",
+                      border: "1px solid var(--border)",
+                      backgroundColor: "var(--hover)",
                       fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: "0.8125rem",
                       fontWeight: 500,
                       color: "var(--text-secondary)",
+                      textDecoration: "none",
+                      transition: "border-color 0.2s ease, color 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.color =
+                        "var(--accent)";
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                        "var(--accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.color =
+                        "var(--text-secondary)";
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                        "var(--border)";
                     }}
                   >
-                    Development progress
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
-                      fontSize: "0.75rem",
-                      color: "var(--accent)",
-                    }}
-                  >
-                    ~55%
-                  </span>
-                </div>
-                <div
-                  style={{
-                    height: "4px",
-                    borderRadius: "2px",
-                    backgroundColor: "var(--muted)",
-                    overflow: "hidden",
-                    maxWidth: "400px",
-                  }}
-                >
-                  <div
-                    style={{
-                      height: "100%",
-                      width: "55%",
-                      backgroundColor: "var(--accent)",
-                      borderRadius: "2px",
-                      transition: "width 1.2s ease",
-                    }}
-                  />
-                </div>
+                    {store.label}
+                    <svg
+                      width="11"
+                      height="11"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -333,9 +352,9 @@ const CurrentlyBuilding = () => {
                 { label: "Live Data (WebSockets)", done: true },
                 { label: "CI/CD Frontend & Backend", done: true },
                 { label: "Heatmaps & Trending Stocks", done: true },
-                { label: "Portfolio Analytics", done: false },
-                { label: "Public beta", done: false },
-                { label: "Launch", done: false },
+                { label: "Portfolio Analytics", done: true },
+                { label: "Public beta", done: true },
+                { label: "Launch", done: true },
               ].map((item) => (
                 <div
                   key={item.label}
