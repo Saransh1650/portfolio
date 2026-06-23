@@ -187,6 +187,7 @@ Launched & live
                 href="https://ziromarket.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => posthog.capture("ziro_market_website_clicked", { href: "https://ziromarket.com" })}
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: "0.8rem",
