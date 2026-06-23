@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import posthog from "posthog-js";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -21,8 +22,19 @@ const Contact = () => {
         () => {
           setStatus("success");
           setFormData({ name: "", email: "", message: "" });
+          posthog.capture("contact_form_submitted", {
+            sender_name: formData.name,
+            sender_email: formData.email,
+            message_length: formData.message.length,
+          });
         },
-        () => setStatus("error")
+        () => {
+          setStatus("error");
+          posthog.capture("contact_form_failed", {
+            sender_name: formData.name,
+            sender_email: formData.email,
+          });
+        }
       );
   };
 
@@ -138,6 +150,7 @@ const Contact = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => posthog.capture("contact_link_clicked", { platform: link.label, href: link.href })}
                   style={{
                     display: "flex",
                     alignItems: "center",

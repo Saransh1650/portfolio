@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { projects, categories, Project } from "@/data/projects";
+import posthog from "posthog-js";
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("flutter");
@@ -199,6 +200,7 @@ const Projects = () => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => posthog.capture("project_link_clicked", { project: project.title, link_type: "github", href: project.githubUrl })}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -224,6 +226,7 @@ const Projects = () => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => posthog.capture("project_link_clicked", { project: project.title, link_type: "live", href: project.liveUrl })}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -295,6 +298,7 @@ const Projects = () => {
             <button
               key={category.id}
               onClick={() => {
+                posthog.capture("project_category_filtered", { category: category.id, category_label: category.label });
                 setActiveCategory(category.id);
                 // reset cards
                 setTimeout(() => {

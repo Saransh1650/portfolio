@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import posthog from "posthog-js";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -189,13 +190,13 @@ const Hero = () => {
 
         {/* CTA Row */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "64px" }}>
-          <a href="#contact" className="btn-primary">
+          <a href="#contact" className="btn-primary" onClick={() => posthog.capture("hero_cta_clicked", { cta: "get_in_touch" })}>
             Get in touch
             <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
             </svg>
           </a>
-          <a href="#projects" className="btn-secondary">
+          <a href="#projects" className="btn-secondary" onClick={() => posthog.capture("hero_cta_clicked", { cta: "view_projects" })}>
             View projects
           </a>
         </div>
@@ -208,6 +209,7 @@ const Hero = () => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => posthog.capture("hero_social_link_clicked", { platform: link.name, href: link.href })}
               style={{
                 display: "inline-flex",
                 alignItems: "center",

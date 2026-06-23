@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import posthog from "posthog-js";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -150,6 +151,7 @@ const Navigation = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => posthog.capture("resume_viewed", { source: "desktop_nav" })}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -274,7 +276,7 @@ const Navigation = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => { setIsMobileMenuOpen(false); posthog.capture("resume_viewed", { source: "mobile_nav" }); }}
             style={{
               display: "block",
               padding: "12px 0",

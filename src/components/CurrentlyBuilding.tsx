@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import posthog from "posthog-js";
 
 const CurrentlyBuilding = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -277,6 +278,7 @@ Launched & live
                     href={store.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => posthog.capture("ziro_market_store_link_clicked", { store: store.label, href: store.href })}
                     style={{
                       display: "inline-flex",
                       alignItems: "center",

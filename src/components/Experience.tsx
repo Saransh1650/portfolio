@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import posthog from "posthog-js";
 
 const Experience = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -337,6 +338,7 @@ const Experience = () => {
                     href={exp.companyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => posthog.capture("experience_link_clicked", { company: exp.company, link_type: "company_site" })}
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -384,6 +386,7 @@ const Experience = () => {
                     href={exp.appUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => posthog.capture("experience_link_clicked", { company: exp.company, link_type: "app_store" })}
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -431,6 +434,7 @@ const Experience = () => {
                     href={exp.mobileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => posthog.capture("experience_link_clicked", { company: exp.company, link_type: "mobile_app" })}
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -478,6 +482,7 @@ const Experience = () => {
                     href={exp.webUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => posthog.capture("experience_link_clicked", { company: exp.company, link_type: "web_app" })}
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -525,6 +530,7 @@ const Experience = () => {
                     href={exp.previewUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => posthog.capture("experience_link_clicked", { company: exp.company, link_type: "github_preview" })}
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
