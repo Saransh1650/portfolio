@@ -21,12 +21,12 @@ The wizard has completed a deep integration of your portfolio project. PostHog w
 
 We've built some insights and a dashboard for you to keep an eye on user behavior, based on the events we just instrumented:
 
-- **Dashboard**: [Analytics basics (wizard)](https://us.posthog.com/project/483217/dashboard/1751671)
-- **Insight**: [Hero CTA Clicks](https://us.posthog.com/project/483217/insights/QGGER0nd)
-- **Insight**: [Resume Views](https://us.posthog.com/project/483217/insights/N0a0TdHV)
-- **Insight**: [Contact Form: Success vs Failure](https://us.posthog.com/project/483217/insights/dxHATasd)
-- **Insight**: [Project Engagement](https://us.posthog.com/project/483217/insights/gYH3hJLA)
-- **Insight**: [Outbound Link Clicks](https://us.posthog.com/project/483217/insights/UOO76fo0)
+- **Dashboard**: [Analytics basics (wizard)](https://us.posthog.com/project/483217/dashboard/1754907)
+- **Insight**: [Hero CTA Clicks](https://us.posthog.com/project/483217/insights/GrkRvHp7)
+- **Insight**: [Contact Form Success Rate](https://us.posthog.com/project/483217/insights/jeUPQZ8v)
+- **Insight**: [Resume Downloads](https://us.posthog.com/project/483217/insights/q5swdpCV)
+- **Insight**: [Project Category Exploration](https://us.posthog.com/project/483217/insights/U1MBp1m9)
+- **Insight**: [External Link Engagement](https://us.posthog.com/project/483217/insights/Fy5WTZ8k)
 
 ## Verify before merging
 
