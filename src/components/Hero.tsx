@@ -188,7 +188,7 @@ const Hero = () => {
               letterSpacing: "-0.02em",
             }}
           >
-            Mobile Engineer · iOS & Flutter
+            Software Engineer
           </p>
         </div>
 
