@@ -203,8 +203,8 @@ const Hero = () => {
             fontFamily: "'Space Grotesk', sans-serif",
           }}
         >
-          I build polished mobile applications for iOS and cross-platform with a
-          focus on real-world impact. Currently working as an iOS Engineer at{" "}
+          I build scalable, production-ready software with a focus on clean
+          architecture and real-world impact. Currently working as an iOS Engineer at{" "}
           <span style={{ color: "var(--text-secondary)", fontWeight: 500 }}>
             MedQT
           </span>{" "}
